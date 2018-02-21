@@ -1,0 +1,392 @@
+
+//
+//  BLEManager.swift
+//  LYNKD
+//
+//  Created by Ashish Chaudhary on 12/2/17.
+//  Copyright © 2017 Magneto IT solutions Pvt Ltd. All rights reserved.
+//
+
+import UIKit
+import CoreBluetooth
+
+@objc protocol BLEManagerDelegate {
+    @objc optional func bleManagerDeviceConnected(peripheral: CBPeripheral)
+    @objc optional func bleManagerGetCharacteristicCompleted(selectedCharacteristic: String)
+    @objc optional func bleManagerDidUpdateValueForCharacteristic(characteristic: CBCharacteristic)
+    @objc optional func bleManagerDidWriteValueForCharacteristic(characteristic: String)
+    @objc optional func bleManagerDidUpdateStateError(message:String)
+    @objc optional func bleManagerDeviceNotFound()
+    @objc optional func bleManagerSelectedDeviceConnected()
+    @objc optional func bleManagerLynkedPeripheralReConnected()
+    @objc optional func bleManagerLoadDevicestableview()
+}
+
+//private let sharedBLEManager = BLEManager()
+
+class BLEManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
+    var delegate: BLEManagerDelegate?
+    
+    var CbControlManager : CBCentralManager!
+    
+    var scannedLynkdPeripheral: CBPeripheral!
+    
+    var connectedLynkdPeripheral: CBPeripheral!
+    
+    var selectedService: CBService?
+    
+    var selectedStrCharacteristic: String?
+    
+    let services = [CBUUID(string: "FFD6")]
+//    var remotePeripheral: [CBPeripheral] = []
+    
+    init(delegate: BLEManagerDelegate?) {
+        
+        self.delegate = delegate
+        super.init()
+        _ = DispatchQueue(label: "queuename")
+
+        self.CbControlManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    func reconnectToConnectedLynkedPeripheral() {
+        if let connectedLynkdPeripheral = self.connectedLynkdPeripheral {
+            self.CbControlManager?.connect(connectedLynkdPeripheral, options: nil)
+        }
+    }
+    
+    func discoverCharacteristicForService(service: CBService, characteristic: String) {
+        if DeviceLockManager.shared().isLynkdDeviceConnected {
+            self.selectedService = service
+            self.selectedStrCharacteristic = characteristic
+            self.connectedLynkdPeripheral?.discoverCharacteristics(nil, for: self.selectedService!)
+        }
+    }
+    
+    func cancelConnection(){
+        if let p = self.connectedLynkdPeripheral {
+            self.CbControlManager?.cancelPeripheralConnection(p)
+        }
+    }
+    
+    func writeDataWithCharacteristic(writeData: Data, characteristic: CBCharacteristic) {
+        
+        self.connectedLynkdPeripheral?.writeValue(writeData, for: characteristic, type: .withResponse)
+    }
+    
+    func readDataWithCharacteristic(characteristic: CBCharacteristic) {
+        
+        self.connectedLynkdPeripheral?.readValue(for: characteristic)
+    }
+    
+    func setNotifyWithCharacteristic(characteristic: CBCharacteristic) {
+        self.connectedLynkdPeripheral?.setNotifyValue(true, for: characteristic)
+        
+    }
+    
+    func didUpdateValueForCharacteristics(characteristic: CBCharacteristic) {
+        if self.delegate != nil {
+            self.delegate?.bleManagerDidUpdateValueForCharacteristic!(characteristic: characteristic)
+        }
+    }
+    
+    func didWriteValueForCharacteristics(characteristic: String) {
+        if self.delegate != nil {
+            self.delegate?.bleManagerDidWriteValueForCharacteristic!(characteristic: characteristic)
+        }
+    }
+    
+    
+    // MARK: - CBCentralManagerDelegate Methods
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        /* centralManagerDidUpdateState will be called whenever the CoreBluetooth BLE service state changes. For this example I am only checking if the state == .poweredOn but there are other states you can check for such as off, unknown and resetting. When the state is on we initiate a device scan using scanForPeripheralsWithServices.
+         
+         If the service finds a device the delegate method didDiscoverPeripheral is called. In this method we just get the newly discovered peripheral and add it to our array of peripherals. We then call reloadData on the tableView so that the new object in the array is used in our tableView. I have only used the name property from the peripheral but there is loads more stuff to play with.*/
+        if delegate != nil {
+            switch central.state {
+            case .poweredOn:
+                // 1
+                //keepScanning = true
+                // 2
+                // = NSTimer(timeInterval: timerScanInterval, target: self, selector: #selector(pauseScan), userInfo: nil, repeats: false)
+                
+                // If you specify nil for the first parameter, the central manager returns all discovered peripherals, regardless of their supported services. In a real app, you typically specify an array of CBUUID objects, each of which represents the universally unique identifier (UUID) of a service that a peripheral is advertising. When you specify an array of service UUIDs, the central manager returns only peripherals that advertise those services, allowing you to scan only for devices that you may be interested in.
+                // 3
+                SessionDataManager.shared().CbControlManager = central
+                central.scanForPeripherals(withServices: self.services, options: nil)
+                
+            case .poweredOff:
+                self.delegate?.bleManagerDidUpdateStateError!(message: "Bluetooth on this device is currently powered off.")
+                print("Bluetooth on this device is currently powered off.")
+                break
+            case .unsupported:
+                self.delegate?.bleManagerDidUpdateStateError!(message: "This device does not support Bluetooth Low Energy.")
+                print("This device does not support Bluetooth Low Energy.")
+                break
+            case .unauthorized:
+                delegate?.bleManagerDidUpdateStateError!(message: "This app is not authorized to use Bluetooth Low Energy.")
+                print("This app is not authorized to use Bluetooth Low Energy.")
+                break
+            case .resetting:
+                delegate?.bleManagerDidUpdateStateError!(message: "The BLE Manager is resetting; a state update is pending.")
+                print("The BLE Manager is resetting; a state update is pending.")
+                break
+            case .unknown:
+                delegate?.bleManagerDidUpdateStateError!(message: "The state of the BLE Manager is unknown.")
+                print("The state of the BLE Manager is unknown.")
+                break
+            }
+        }
+        
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        
+        self.scannedLynkdPeripheral = peripheral
+        print("RSSI\(RSSI)")
+        print("advertisementData==\(advertisementData)")
+        
+        print("Scanned Peripheral: ", self.scannedLynkdPeripheral?.name as Any)
+        if DeviceLockManager.shared().isValidLYNKPeripheralDevice(deviceName: self.scannedLynkdPeripheral?.name ?? "") && DeviceLockManager.shared().isLynkdDeviceConnected == false {
+            if SessionDataManager.shared().isSerchingDevicesForPopup!{
+                // Search devices for popups in devices controllerdevices
+                if DeviceLockManager.shared().scannedPeripherals.contains(peripheral){
+                    // Already added perpheral
+                }else{
+                    print("bleManagerLoadDevicestableview")
+                    DeviceLockManager.shared().scannedPeripherals.append(peripheral)
+                    if delegate != nil{
+                        self.delegate?.bleManagerLoadDevicestableview!()
+                    }
+                }
+            }else{
+                if SessionDataManager.shared().isSerchingNewDevice!{ //Check Come from AddDeviceScreen or DevicesViewController
+                    print("isSerchingNewDevice")
+                    self.CbControlManager?.connect(self.scannedLynkdPeripheral!, options: nil)
+                }else{
+                    //Compare UDID
+                    if self.scannedLynkdPeripheral?.identifier.uuidString == SessionDataManager.shared().selectedUUIDString! {
+                        print("selectedUUIDString")
+                        self.CbControlManager?.connect(self.scannedLynkdPeripheral!, options: nil)
+                    } else {
+//                           print("Else isSerchingNewDevice")
+//                           SessionDataManager.shared().isSerchingNewDevice = true
+//                            self.CbControlManager?.connect(self.scannedLynkdPeripheral!, options: nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        
+        if let err = error{
+            print(err)
+        }
+        print("Disconnected");
+      
+        DeviceLockManager.shared().peripheralServices.removeAll()
+        DeviceLockManager.shared().serviceCharacteristics.removeAll()
+        //if SessionDataManager.shared().firmwareDownloading == false {
+            //Clear Service and Characteristics array here
+           // DeviceLockManager.shared().isLynkdDeviceConnected = false
+            NotificationCenter.default.post(name: Notification.Name("DeviceDisconnect"), object: nil)
+       // }
+        
+    }
+    
+    
+    //If the connection request is successful, the central manager calls the centralManager:didConnectPeripheral: method of its delegate object. Before you start interacting with the peripheral, you set its delegate to ensure that the delegate receives the appropriate callbacks:
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("connect")
+        self.CbControlManager?.stopScan()
+        //Clear Service and Characteristics array here
+        DeviceLockManager.shared().peripheralServices.removeAll()
+        DeviceLockManager.shared().serviceCharacteristics.removeAll()
+        
+        DeviceLockManager.shared().isLynkdDeviceConnected = true
+        self.connectedLynkdPeripheral = peripheral
+        SessionDataManager.shared().connectedLynkdPeripheral = self.connectedLynkdPeripheral
+        
+        peripheral.delegate = self
+        //        remotePeripheral.append(peripheral)
+        peripheral.discoverServices(nil)
+        
+        if delegate != nil {
+            self.delegate?.bleManagerDeviceConnected?(peripheral: self.connectedLynkdPeripheral!)
+        }
+        
+    }
+    
+    // Called when it failed
+    func centralManager(_ central: CBCentralManager,
+                        didFailToConnect peripheral: CBPeripheral,
+                        error: Error?)
+    {
+        print("Failed")
+        //Clear Service and Characteristics array here
+        DeviceLockManager.shared().peripheralServices.removeAll()
+        DeviceLockManager.shared().serviceCharacteristics.removeAll()
+    }
+    
+    
+    // MARK: - CBPeripheralDelegate Methods -
+    
+    // Receive the result of discovering services.
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?)
+    {
+        if let error = error {
+            print("error\(error)")
+            return
+        }
+        
+        if self.connectedLynkdPeripheral == peripheral {
+            for service in peripheral.services! {
+                
+                print("Service found with UUID: ", service.uuid)
+                if service.uuid.uuidString == Services.WifiServiceUUID{
+                    DeviceLockManager.shared().isWifiEnableDevice = true
+                }else{
+                    DeviceLockManager.shared().isWifiEnableDevice = false
+                }
+                
+                if !DeviceLockManager.shared().peripheralServices.contains(service) {
+                    DeviceLockManager.shared().peripheralServices.append(service)
+                }
+            }
+            
+            // set Notify for Password Result before writing Password
+            DeviceLockManager.shared().initiateServicesAndCharacteristicsOperation(characteristic: Characteristics.CustomerUnlockPasswordResultUUID, strService: Services.CustomerServiceUUID)
+            
+            //TODO: Create Delegate For WritePassword blemangerSelectedDeviceConnected
+            if delegate != nil{
+                self.delegate?.bleManagerSelectedDeviceConnected!()
+                self.delegate?.bleManagerLynkedPeripheralReConnected!()
+            }
+        }
+        
+        //Note: In a real app, you typically do not pass in nil as the first parameter, because doing so returns all the characteristics of a peripheral’s service. Because a peripheral’s service may contain many more characteristics than you are interested in, discovering all of them may waste battery life and be an unnecessary use of time. Instead, you typically specify the UUIDs of the characteristics that you already know you are interested in discovering.
+    }
+    
+    //Start discovering characteristics.
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?)
+    {
+        if let error = error {
+            print("error\(error)")
+            return
+        }
+        
+        if service == self.selectedService {
+            for characteristic in service.characteristics! {
+                print("Characteristics found with UUID: " + characteristic.uuid.uuidString)
+                if !DeviceLockManager.shared().serviceCharacteristics.contains(characteristic) {
+                    DeviceLockManager.shared().serviceCharacteristics.append(characteristic)
+                }
+            }
+            
+            if self.delegate != nil {
+                self.delegate?.bleManagerGetCharacteristicCompleted!(selectedCharacteristic: self.selectedStrCharacteristic!)
+            }
+        }
+    }
+    
+    
+    //Write Successfully or Not
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        if let error = error
+        {
+            print("error\(error)")
+            return
+        }
+        
+        print("Wrote : ", characteristic.uuid.uuidString)
+        switch characteristic.uuid.uuidString {
+        case Characteristics.setLedTimeOut:
+            self.didWriteValueForCharacteristics(characteristic: characteristic.uuid.uuidString)
+            break
+        case Characteristics.setAutoLockTime:
+            self.didWriteValueForCharacteristics(characteristic: characteristic.uuid.uuidString)
+            break
+        default:
+            break
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        
+        if let error = error
+        {
+            print("error\(error)")
+            return
+        }
+        
+        switch characteristic.uuid.uuidString {
+        case Characteristics.CustomerUnlockPasswordResultUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.RFIDAddCharactesticsUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetRFIDListUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetWifiUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetWifiStatusConnUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetHistorylUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.Get_Firmware_lock_versionUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetBatteryLevelUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.setCurrentTimeUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetWifiPasswordWriteUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetMacAddressUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.AddBulkRFID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.shareCodeTime:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.shareCodeCount:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.setAlarm:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.addOTAFile:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetWifiStrgrngthToCheckConnect:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.GetSerialNumber:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.notificationSetting:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        case Characteristics.CustomerUnlockVerifyPasswordUUID:
+            self.didUpdateValueForCharacteristics(characteristic: characteristic)
+            break
+        default:
+            break
+        }
+    }
+}
+

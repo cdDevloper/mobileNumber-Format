@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D28CA6DF203DCDF800C844A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6DE203DCDF800C844A2 /* AppDelegate.swift */; };
+		D28CA6E1203DCDF800C844A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6E0203DCDF800C844A2 /* ViewController.swift */; };
+		D28CA6E4203DCDF800C844A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6E2203DCDF800C844A2 /* Main.storyboard */; };
+		D28CA6E7203DCDF800C844A2 /* Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6E5203DCDF800C844A2 /* Demo.xcdatamodeld */; };
+		D28CA6E9203DCDF800C844A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6E8203DCDF800C844A2 /* Assets.xcassets */; };
+		D28CA6EC203DCDF800C844A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6EA203DCDF800C844A2 /* LaunchScreen.storyboard */; };
+		D28CA746203DD03000C844A2 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6F5203DD03000C844A2 /* BLEManager.swift */; };
+		D28CA747203DD03000C844A2 /* BLEManager.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6F6203DD03000C844A2 /* BLEManager.swift.orig */; };
+		D28CA748203DD03000C844A2 /* DataScanner.h.orig in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6F8203DD03000C844A2 /* DataScanner.h.orig */; };
+		D28CA749203DD03000C844A2 /* DataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6F9203DD03000C844A2 /* DataScanner.m */; };
+		D28CA74A203DD03000C844A2 /* DeviceLockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6FA203DD03000C844A2 /* DeviceLockManager.swift */; };
+		D28CA74B203DD03000C844A2 /* DeviceLockManager.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = D28CA6FB203DD03000C844A2 /* DeviceLockManager.swift.orig */; };
+		D28CA74C203DD03000C844A2 /* CoreDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6FD203DD03000C844A2 /* CoreDataAccess.swift */; };
+		D28CA74D203DD03000C844A2 /* AesEncryptionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA6FF203DD03000C844A2 /* AesEncryptionAlgorithm.swift */; };
+		D28CA74E203DD03000C844A2 /* DateExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA707203DD03000C844A2 /* DateExtentsion.swift */; };
+		D28CA74F203DD03000C844A2 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA708203DD03000C844A2 /* NSObjectExtension.swift */; };
+		D28CA750203DD03000C844A2 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA70A203DD03000C844A2 /* NSString+TextDirectionality.m */; };
+		D28CA751203DD03000C844A2 /* AbstractProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA70C203DD03000C844A2 /* AbstractProxy.swift */; };
+		D28CA752203DD03000C844A2 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA70F203DD03000C844A2 /* ASValuePopUpView.m */; };
+		D28CA753203DD03000C844A2 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA711203DD03000C844A2 /* ASValueTrackingSlider.m */; };
+		D28CA754203DD03000C844A2 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA713203DD03000C844A2 /* CAPSPageMenu.m */; };
+		D28CA755203DD03000C844A2 /* FRHyperLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA715203DD03000C844A2 /* FRHyperLabel.m */; };
+		D28CA756203DD03000C844A2 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D28CA717203DD03000C844A2 /* JVFloatLabeledTextField.m */; };
+		D28CA757203DD03000C844A2 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA718203DD03000C844A2 /* MonthYearPickerView.swift */; };
+		D28CA758203DD03000C844A2 /* UserDefaultUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA71A203DD03000C844A2 /* UserDefaultUtils.swift */; };
+		D28CA759203DD03000C844A2 /* AccessCodeProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA71C203DD03000C844A2 /* AccessCodeProxy.swift */; };
+		D28CA75A203DD03000C844A2 /* accountInfoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA71D203DD03000C844A2 /* accountInfoProxy.swift */; };
+		D28CA75B203DD03000C844A2 /* AddDeviceActivityProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA71E203DD03000C844A2 /* AddDeviceActivityProxy.swift */; };
+		D28CA75C203DD03000C844A2 /* AddDeviceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA71F203DD03000C844A2 /* AddDeviceProxy.swift */; };
+		D28CA75D203DD03000C844A2 /* AddRFIDProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA720203DD03000C844A2 /* AddRFIDProxy.swift */; };
+		D28CA75E203DD03000C844A2 /* BillingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA721203DD03000C844A2 /* BillingInfo.swift */; };
+		D28CA75F203DD03000C844A2 /* checkDeviceRFIDLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA722203DD03000C844A2 /* checkDeviceRFIDLimit.swift */; };
+		D28CA760203DD03000C844A2 /* DeleteRFIDProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA723203DD03000C844A2 /* DeleteRFIDProxy.swift */; };
+		D28CA761203DD03000C844A2 /* DeleteUserLockProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA724203DD03000C844A2 /* DeleteUserLockProxy.swift */; };
+		D28CA762203DD03000C844A2 /* DeviceListProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA725203DD03000C844A2 /* DeviceListProxy.swift */; };
+		D28CA763203DD03000C844A2 /* ForgotPasswordProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA726203DD03000C844A2 /* ForgotPasswordProxy.swift */; };
+		D28CA764203DD03000C844A2 /* GetAccountInfoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA727203DD03000C844A2 /* GetAccountInfoProxy.swift */; };
+		D28CA765203DD03000C844A2 /* GetCityStateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA728203DD03000C844A2 /* GetCityStateProxy.swift */; };
+		D28CA766203DD03000C844A2 /* GetDashboardDetailProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA729203DD03000C844A2 /* GetDashboardDetailProxy.swift */; };
+		D28CA767203DD03000C844A2 /* GetDashboardDevicesListProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72A203DD03000C844A2 /* GetDashboardDevicesListProxy.swift */; };
+		D28CA768203DD03000C844A2 /* GetDashboardGroupListProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72B203DD03000C844A2 /* GetDashboardGroupListProxy.swift */; };
+		D28CA769203DD03000C844A2 /* GetDashboardRFIDListProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72C203DD03000C844A2 /* GetDashboardRFIDListProxy.swift */; };
+		D28CA76A203DD03000C844A2 /* GetDashboardUserListProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72D203DD03000C844A2 /* GetDashboardUserListProxy.swift */; };
+		D28CA76B203DD03000C844A2 /* GetHistoryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72E203DD03000C844A2 /* GetHistoryProxy.swift */; };
+		D28CA76C203DD03000C844A2 /* GetKeycodeProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA72F203DD03000C844A2 /* GetKeycodeProxy.swift */; };
+		D28CA76D203DD03000C844A2 /* RFIDListUpdateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA730203DD03000C844A2 /* RFIDListUpdateProxy.swift */; };
+		D28CA76E203DD03000C844A2 /* SignUpProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA731203DD03000C844A2 /* SignUpProxy.swift */; };
+		D28CA76F203DD03100C844A2 /* UpdateAccountInfoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA732203DD03000C844A2 /* UpdateAccountInfoProxy.swift */; };
+		D28CA770203DD03100C844A2 /* UpdateBatteryLevelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA733203DD03000C844A2 /* UpdateBatteryLevelProxy.swift */; };
+		D28CA771203DD03100C844A2 /* UpdateHistoryLogProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA734203DD03000C844A2 /* UpdateHistoryLogProxy.swift */; };
+		D28CA772203DD03100C844A2 /* UpdatePasswordProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA735203DD03000C844A2 /* UpdatePasswordProxy.swift */; };
+		D28CA773203DD03100C844A2 /* UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA736203DD03000C844A2 /* UserProxy.swift */; };
+		D28CA774203DD03100C844A2 /* CardInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA737203DD03000C844A2 /* CardInfoController.swift */; };
+		D28CA775203DD03100C844A2 /* AFWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA739203DD03000C844A2 /* AFWrapper.swift */; };
+		D28CA776203DD03100C844A2 /* CommanClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA73A203DD03000C844A2 /* CommanClass.swift */; };
+		D28CA777203DD03100C844A2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA73B203DD03000C844A2 /* Configuration.swift */; };
+		D28CA778203DD03100C844A2 /* SessionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA73C203DD03000C844A2 /* SessionDataManager.swift */; };
+		D28CA779203DD03100C844A2 /* SessionDataManager.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = D28CA73D203DD03000C844A2 /* SessionDataManager.swift.orig */; };
+		D28CA77A203DD03100C844A2 /* Validation1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA73E203DD03000C844A2 /* Validation1.swift */; };
+		D28CA77B203DD03100C844A2 /* RequestQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA73F203DD03000C844A2 /* RequestQuoteViewController.swift */; };
+		D28CA77C203DD03100C844A2 /* AccessCodeVerifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA741203DD03000C844A2 /* AccessCodeVerifyModel.swift */; };
+		D28CA77D203DD03100C844A2 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA742203DD03000C844A2 /* AlertModel.swift */; };
+		D28CA77E203DD03100C844A2 /* DeviceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA743203DD03000C844A2 /* DeviceListModel.swift */; };
+		D28CA77F203DD03100C844A2 /* InvitedUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA744203DD03000C844A2 /* InvitedUserModel.swift */; };
+		D28CA780203DD03100C844A2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CA745203DD03000C844A2 /* UserModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D28CA6DB203DCDF800C844A2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D28CA6DE203DCDF800C844A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D28CA6E0203DCDF800C844A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D28CA6E3203DCDF800C844A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D28CA6E6203DCDF800C844A2 /* Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo.xcdatamodel; sourceTree = "<group>"; };
+		D28CA6E8203DCDF800C844A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D28CA6EB203DCDF800C844A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D28CA6ED203DCDF800C844A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D28CA6F5203DD03000C844A2 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		D28CA6F6203DD03000C844A2 /* BLEManager.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BLEManager.swift.orig; sourceTree = "<group>"; };
+		D28CA6F7203DD03000C844A2 /* DataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataScanner.h; sourceTree = "<group>"; };
+		D28CA6F8203DD03000C844A2 /* DataScanner.h.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataScanner.h.orig; sourceTree = "<group>"; };
+		D28CA6F9203DD03000C844A2 /* DataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataScanner.m; sourceTree = "<group>"; };
+		D28CA6FA203DD03000C844A2 /* DeviceLockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLockManager.swift; sourceTree = "<group>"; };
+		D28CA6FB203DD03000C844A2 /* DeviceLockManager.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DeviceLockManager.swift.orig; sourceTree = "<group>"; };
+		D28CA6FD203DD03000C844A2 /* CoreDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataAccess.swift; sourceTree = "<group>"; };
+		D28CA6FF203DD03000C844A2 /* AesEncryptionAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesEncryptionAlgorithm.swift; sourceTree = "<group>"; };
+		D28CA700203DD03000C844A2 /* CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCrypto.h; sourceTree = "<group>"; };
+		D28CA701203DD03000C844A2 /* CommonCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCryptor.h; sourceTree = "<group>"; };
+		D28CA702203DD03000C844A2 /* CommonDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDigest.h; sourceTree = "<group>"; };
+		D28CA703203DD03000C844A2 /* CommonHMAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHMAC.h; sourceTree = "<group>"; };
+		D28CA704203DD03000C844A2 /* CommonKeyDerivation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonKeyDerivation.h; sourceTree = "<group>"; };
+		D28CA705203DD03000C844A2 /* CommonSymmetricKeywrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSymmetricKeywrap.h; sourceTree = "<group>"; };
+		D28CA707203DD03000C844A2 /* DateExtentsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtentsion.swift; sourceTree = "<group>"; };
+		D28CA708203DD03000C844A2 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		D28CA709203DD03000C844A2 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		D28CA70A203DD03000C844A2 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		D28CA70C203DD03000C844A2 /* AbstractProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractProxy.swift; sourceTree = "<group>"; };
+		D28CA70E203DD03000C844A2 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		D28CA70F203DD03000C844A2 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		D28CA710203DD03000C844A2 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		D28CA711203DD03000C844A2 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		D28CA712203DD03000C844A2 /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
+		D28CA713203DD03000C844A2 /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
+		D28CA714203DD03000C844A2 /* FRHyperLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRHyperLabel.h; sourceTree = "<group>"; };
+		D28CA715203DD03000C844A2 /* FRHyperLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRHyperLabel.m; sourceTree = "<group>"; };
+		D28CA716203DD03000C844A2 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		D28CA717203DD03000C844A2 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		D28CA718203DD03000C844A2 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		D28CA71A203DD03000C844A2 /* UserDefaultUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultUtils.swift; sourceTree = "<group>"; };
+		D28CA71C203DD03000C844A2 /* AccessCodeProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessCodeProxy.swift; sourceTree = "<group>"; };
+		D28CA71D203DD03000C844A2 /* accountInfoProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accountInfoProxy.swift; sourceTree = "<group>"; };
+		D28CA71E203DD03000C844A2 /* AddDeviceActivityProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceActivityProxy.swift; sourceTree = "<group>"; };
+		D28CA71F203DD03000C844A2 /* AddDeviceProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceProxy.swift; sourceTree = "<group>"; };
+		D28CA720203DD03000C844A2 /* AddRFIDProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRFIDProxy.swift; sourceTree = "<group>"; };
+		D28CA721203DD03000C844A2 /* BillingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingInfo.swift; sourceTree = "<group>"; };
+		D28CA722203DD03000C844A2 /* checkDeviceRFIDLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkDeviceRFIDLimit.swift; sourceTree = "<group>"; };
+		D28CA723203DD03000C844A2 /* DeleteRFIDProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteRFIDProxy.swift; sourceTree = "<group>"; };
+		D28CA724203DD03000C844A2 /* DeleteUserLockProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteUserLockProxy.swift; sourceTree = "<group>"; };
+		D28CA725203DD03000C844A2 /* DeviceListProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListProxy.swift; sourceTree = "<group>"; };
+		D28CA726203DD03000C844A2 /* ForgotPasswordProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProxy.swift; sourceTree = "<group>"; };
+		D28CA727203DD03000C844A2 /* GetAccountInfoProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAccountInfoProxy.swift; sourceTree = "<group>"; };
+		D28CA728203DD03000C844A2 /* GetCityStateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCityStateProxy.swift; sourceTree = "<group>"; };
+		D28CA729203DD03000C844A2 /* GetDashboardDetailProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDashboardDetailProxy.swift; sourceTree = "<group>"; };
+		D28CA72A203DD03000C844A2 /* GetDashboardDevicesListProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDashboardDevicesListProxy.swift; sourceTree = "<group>"; };
+		D28CA72B203DD03000C844A2 /* GetDashboardGroupListProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDashboardGroupListProxy.swift; sourceTree = "<group>"; };
+		D28CA72C203DD03000C844A2 /* GetDashboardRFIDListProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDashboardRFIDListProxy.swift; sourceTree = "<group>"; };
+		D28CA72D203DD03000C844A2 /* GetDashboardUserListProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDashboardUserListProxy.swift; sourceTree = "<group>"; };
+		D28CA72E203DD03000C844A2 /* GetHistoryProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHistoryProxy.swift; sourceTree = "<group>"; };
+		D28CA72F203DD03000C844A2 /* GetKeycodeProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKeycodeProxy.swift; sourceTree = "<group>"; };
+		D28CA730203DD03000C844A2 /* RFIDListUpdateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFIDListUpdateProxy.swift; sourceTree = "<group>"; };
+		D28CA731203DD03000C844A2 /* SignUpProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProxy.swift; sourceTree = "<group>"; };
+		D28CA732203DD03000C844A2 /* UpdateAccountInfoProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAccountInfoProxy.swift; sourceTree = "<group>"; };
+		D28CA733203DD03000C844A2 /* UpdateBatteryLevelProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBatteryLevelProxy.swift; sourceTree = "<group>"; };
+		D28CA734203DD03000C844A2 /* UpdateHistoryLogProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHistoryLogProxy.swift; sourceTree = "<group>"; };
+		D28CA735203DD03000C844A2 /* UpdatePasswordProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordProxy.swift; sourceTree = "<group>"; };
+		D28CA736203DD03000C844A2 /* UserProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProxy.swift; sourceTree = "<group>"; };
+		D28CA737203DD03000C844A2 /* CardInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardInfoController.swift; path = Demo/CardInfoController.swift; sourceTree = "<group>"; };
+		D28CA739203DD03000C844A2 /* AFWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapper.swift; sourceTree = "<group>"; };
+		D28CA73A203DD03000C844A2 /* CommanClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanClass.swift; sourceTree = "<group>"; };
+		D28CA73B203DD03000C844A2 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D28CA73C203DD03000C844A2 /* SessionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDataManager.swift; sourceTree = "<group>"; };
+		D28CA73D203DD03000C844A2 /* SessionDataManager.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionDataManager.swift.orig; sourceTree = "<group>"; };
+		D28CA73E203DD03000C844A2 /* Validation1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation1.swift; sourceTree = "<group>"; };
+		D28CA73F203DD03000C844A2 /* RequestQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestQuoteViewController.swift; path = Demo/RequestQuoteViewController.swift; sourceTree = "<group>"; };
+		D28CA741203DD03000C844A2 /* AccessCodeVerifyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessCodeVerifyModel.swift; sourceTree = "<group>"; };
+		D28CA742203DD03000C844A2 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		D28CA743203DD03000C844A2 /* DeviceListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListModel.swift; sourceTree = "<group>"; };
+		D28CA744203DD03000C844A2 /* InvitedUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitedUserModel.swift; sourceTree = "<group>"; };
+		D28CA745203DD03000C844A2 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D28CA6D8203DCDF800C844A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D28CA6D2203DCDF800C844A2 = {
+			isa = PBXGroup;
+			children = (
+				D28CA737203DD03000C844A2 /* CardInfoController.swift */,
+				D28CA740203DD03000C844A2 /* DataModels */,
+				D28CA6F3203DD03000C844A2 /* HelperClasses */,
+				D28CA738203DD03000C844A2 /* Model */,
+				D28CA71B203DD03000C844A2 /* Proxies */,
+				D28CA73F203DD03000C844A2 /* RequestQuoteViewController.swift */,
+				D28CA6DD203DCDF800C844A2 /* Demo */,
+				D28CA6DC203DCDF800C844A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D28CA6DC203DCDF800C844A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6DB203DCDF800C844A2 /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D28CA6DD203DCDF800C844A2 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6DE203DCDF800C844A2 /* AppDelegate.swift */,
+				D28CA6E0203DCDF800C844A2 /* ViewController.swift */,
+				D28CA6E2203DCDF800C844A2 /* Main.storyboard */,
+				D28CA6E8203DCDF800C844A2 /* Assets.xcassets */,
+				D28CA6EA203DCDF800C844A2 /* LaunchScreen.storyboard */,
+				D28CA6ED203DCDF800C844A2 /* Info.plist */,
+				D28CA6E5203DCDF800C844A2 /* Demo.xcdatamodeld */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		D28CA6F3203DD03000C844A2 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6F4203DD03000C844A2 /* BluetoothManagers */,
+				D28CA6FC203DD03000C844A2 /* CoreData */,
+				D28CA6FE203DD03000C844A2 /* Encryption */,
+				D28CA706203DD03000C844A2 /* Extensions */,
+				D28CA70B203DD03000C844A2 /* Network */,
+				D28CA70D203DD03000C844A2 /* ThirdPartyLibrary */,
+				D28CA719203DD03000C844A2 /* Utils */,
+			);
+			name = HelperClasses;
+			path = Demo/HelperClasses;
+			sourceTree = "<group>";
+		};
+		D28CA6F4203DD03000C844A2 /* BluetoothManagers */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6F5203DD03000C844A2 /* BLEManager.swift */,
+				D28CA6F6203DD03000C844A2 /* BLEManager.swift.orig */,
+				D28CA6F7203DD03000C844A2 /* DataScanner.h */,
+				D28CA6F8203DD03000C844A2 /* DataScanner.h.orig */,
+				D28CA6F9203DD03000C844A2 /* DataScanner.m */,
+				D28CA6FA203DD03000C844A2 /* DeviceLockManager.swift */,
+				D28CA6FB203DD03000C844A2 /* DeviceLockManager.swift.orig */,
+			);
+			path = BluetoothManagers;
+			sourceTree = "<group>";
+		};
+		D28CA6FC203DD03000C844A2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6FD203DD03000C844A2 /* CoreDataAccess.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D28CA6FE203DD03000C844A2 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA6FF203DD03000C844A2 /* AesEncryptionAlgorithm.swift */,
+				D28CA700203DD03000C844A2 /* CommonCrypto.h */,
+				D28CA701203DD03000C844A2 /* CommonCryptor.h */,
+				D28CA702203DD03000C844A2 /* CommonDigest.h */,
+				D28CA703203DD03000C844A2 /* CommonHMAC.h */,
+				D28CA704203DD03000C844A2 /* CommonKeyDerivation.h */,
+				D28CA705203DD03000C844A2 /* CommonSymmetricKeywrap.h */,
+			);
+			path = Encryption;
+			sourceTree = "<group>";
+		};
+		D28CA706203DD03000C844A2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA707203DD03000C844A2 /* DateExtentsion.swift */,
+				D28CA708203DD03000C844A2 /* NSObjectExtension.swift */,
+				D28CA709203DD03000C844A2 /* NSString+TextDirectionality.h */,
+				D28CA70A203DD03000C844A2 /* NSString+TextDirectionality.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D28CA70B203DD03000C844A2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA70C203DD03000C844A2 /* AbstractProxy.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D28CA70D203DD03000C844A2 /* ThirdPartyLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA70E203DD03000C844A2 /* ASValuePopUpView.h */,
+				D28CA70F203DD03000C844A2 /* ASValuePopUpView.m */,
+				D28CA710203DD03000C844A2 /* ASValueTrackingSlider.h */,
+				D28CA711203DD03000C844A2 /* ASValueTrackingSlider.m */,
+				D28CA712203DD03000C844A2 /* CAPSPageMenu.h */,
+				D28CA713203DD03000C844A2 /* CAPSPageMenu.m */,
+				D28CA714203DD03000C844A2 /* FRHyperLabel.h */,
+				D28CA715203DD03000C844A2 /* FRHyperLabel.m */,
+				D28CA716203DD03000C844A2 /* JVFloatLabeledTextField.h */,
+				D28CA717203DD03000C844A2 /* JVFloatLabeledTextField.m */,
+				D28CA718203DD03000C844A2 /* MonthYearPickerView.swift */,
+			);
+			path = ThirdPartyLibrary;
+			sourceTree = "<group>";
+		};
+		D28CA719203DD03000C844A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA71A203DD03000C844A2 /* UserDefaultUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D28CA71B203DD03000C844A2 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA71C203DD03000C844A2 /* AccessCodeProxy.swift */,
+				D28CA71D203DD03000C844A2 /* accountInfoProxy.swift */,
+				D28CA71E203DD03000C844A2 /* AddDeviceActivityProxy.swift */,
+				D28CA71F203DD03000C844A2 /* AddDeviceProxy.swift */,
+				D28CA720203DD03000C844A2 /* AddRFIDProxy.swift */,
+				D28CA721203DD03000C844A2 /* BillingInfo.swift */,
+				D28CA722203DD03000C844A2 /* checkDeviceRFIDLimit.swift */,
+				D28CA723203DD03000C844A2 /* DeleteRFIDProxy.swift */,
+				D28CA724203DD03000C844A2 /* DeleteUserLockProxy.swift */,
+				D28CA725203DD03000C844A2 /* DeviceListProxy.swift */,
+				D28CA726203DD03000C844A2 /* ForgotPasswordProxy.swift */,
+				D28CA727203DD03000C844A2 /* GetAccountInfoProxy.swift */,
+				D28CA728203DD03000C844A2 /* GetCityStateProxy.swift */,
+				D28CA729203DD03000C844A2 /* GetDashboardDetailProxy.swift */,
+				D28CA72A203DD03000C844A2 /* GetDashboardDevicesListProxy.swift */,
+				D28CA72B203DD03000C844A2 /* GetDashboardGroupListProxy.swift */,
+				D28CA72C203DD03000C844A2 /* GetDashboardRFIDListProxy.swift */,
+				D28CA72D203DD03000C844A2 /* GetDashboardUserListProxy.swift */,
+				D28CA72E203DD03000C844A2 /* GetHistoryProxy.swift */,
+				D28CA72F203DD03000C844A2 /* GetKeycodeProxy.swift */,
+				D28CA730203DD03000C844A2 /* RFIDListUpdateProxy.swift */,
+				D28CA731203DD03000C844A2 /* SignUpProxy.swift */,
+				D28CA732203DD03000C844A2 /* UpdateAccountInfoProxy.swift */,
+				D28CA733203DD03000C844A2 /* UpdateBatteryLevelProxy.swift */,
+				D28CA734203DD03000C844A2 /* UpdateHistoryLogProxy.swift */,
+				D28CA735203DD03000C844A2 /* UpdatePasswordProxy.swift */,
+				D28CA736203DD03000C844A2 /* UserProxy.swift */,
+			);
+			name = Proxies;
+			path = Demo/Proxies;
+			sourceTree = "<group>";
+		};
+		D28CA738203DD03000C844A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA739203DD03000C844A2 /* AFWrapper.swift */,
+				D28CA73A203DD03000C844A2 /* CommanClass.swift */,
+				D28CA73B203DD03000C844A2 /* Configuration.swift */,
+				D28CA73C203DD03000C844A2 /* SessionDataManager.swift */,
+				D28CA73D203DD03000C844A2 /* SessionDataManager.swift.orig */,
+				D28CA73E203DD03000C844A2 /* Validation1.swift */,
+			);
+			name = Model;
+			path = Demo/Model;
+			sourceTree = "<group>";
+		};
+		D28CA740203DD03000C844A2 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				D28CA741203DD03000C844A2 /* AccessCodeVerifyModel.swift */,
+				D28CA742203DD03000C844A2 /* AlertModel.swift */,
+				D28CA743203DD03000C844A2 /* DeviceListModel.swift */,
+				D28CA744203DD03000C844A2 /* InvitedUserModel.swift */,
+				D28CA745203DD03000C844A2 /* UserModel.swift */,
+			);
+			name = DataModels;
+			path = Demo/DataModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D28CA6DA203DCDF800C844A2 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D28CA6F0203DCDF800C844A2 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				D28CA6D7203DCDF800C844A2 /* Sources */,
+				D28CA6D8203DCDF800C844A2 /* Frameworks */,
+				D28CA6D9203DCDF800C844A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = D28CA6DB203DCDF800C844A2 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D28CA6D3203DCDF800C844A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Magneto IT solutions Pvt Ltd.";
+				TargetAttributes = {
+					D28CA6DA203DCDF800C844A2 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D28CA6D6203DCDF800C844A2 /* Build configuration list for PBXProject "Demo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D28CA6D2203DCDF800C844A2;
+			productRefGroup = D28CA6DC203DCDF800C844A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D28CA6DA203DCDF800C844A2 /* Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D28CA6D9203DCDF800C844A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D28CA748203DD03000C844A2 /* DataScanner.h.orig in Resources */,
+				D28CA6EC203DCDF800C844A2 /* LaunchScreen.storyboard in Resources */,
+				D28CA74B203DD03000C844A2 /* DeviceLockManager.swift.orig in Resources */,
+				D28CA747203DD03000C844A2 /* BLEManager.swift.orig in Resources */,
+				D28CA779203DD03100C844A2 /* SessionDataManager.swift.orig in Resources */,
+				D28CA6E9203DCDF800C844A2 /* Assets.xcassets in Resources */,
+				D28CA6E4203DCDF800C844A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D28CA6D7203DCDF800C844A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D28CA76C203DD03000C844A2 /* GetKeycodeProxy.swift in Sources */,
+				D28CA6E7203DCDF800C844A2 /* Demo.xcdatamodeld in Sources */,
+				D28CA778203DD03100C844A2 /* SessionDataManager.swift in Sources */,
+				D28CA76D203DD03000C844A2 /* RFIDListUpdateProxy.swift in Sources */,
+				D28CA75F203DD03000C844A2 /* checkDeviceRFIDLimit.swift in Sources */,
+				D28CA74F203DD03000C844A2 /* NSObjectExtension.swift in Sources */,
+				D28CA774203DD03100C844A2 /* CardInfoController.swift in Sources */,
+				D28CA776203DD03100C844A2 /* CommanClass.swift in Sources */,
+				D28CA768203DD03000C844A2 /* GetDashboardGroupListProxy.swift in Sources */,
+				D28CA756203DD03000C844A2 /* JVFloatLabeledTextField.m in Sources */,
+				D28CA749203DD03000C844A2 /* DataScanner.m in Sources */,
+				D28CA753203DD03000C844A2 /* ASValueTrackingSlider.m in Sources */,
+				D28CA760203DD03000C844A2 /* DeleteRFIDProxy.swift in Sources */,
+				D28CA772203DD03100C844A2 /* UpdatePasswordProxy.swift in Sources */,
+				D28CA75D203DD03000C844A2 /* AddRFIDProxy.swift in Sources */,
+				D28CA758203DD03000C844A2 /* UserDefaultUtils.swift in Sources */,
+				D28CA770203DD03100C844A2 /* UpdateBatteryLevelProxy.swift in Sources */,
+				D28CA77B203DD03100C844A2 /* RequestQuoteViewController.swift in Sources */,
+				D28CA752203DD03000C844A2 /* ASValuePopUpView.m in Sources */,
+				D28CA75A203DD03000C844A2 /* accountInfoProxy.swift in Sources */,
+				D28CA76A203DD03000C844A2 /* GetDashboardUserListProxy.swift in Sources */,
+				D28CA77E203DD03100C844A2 /* DeviceListModel.swift in Sources */,
+				D28CA77C203DD03100C844A2 /* AccessCodeVerifyModel.swift in Sources */,
+				D28CA773203DD03100C844A2 /* UserProxy.swift in Sources */,
+				D28CA759203DD03000C844A2 /* AccessCodeProxy.swift in Sources */,
+				D28CA76E203DD03000C844A2 /* SignUpProxy.swift in Sources */,
+				D28CA74D203DD03000C844A2 /* AesEncryptionAlgorithm.swift in Sources */,
+				D28CA74A203DD03000C844A2 /* DeviceLockManager.swift in Sources */,
+				D28CA765203DD03000C844A2 /* GetCityStateProxy.swift in Sources */,
+				D28CA750203DD03000C844A2 /* NSString+TextDirectionality.m in Sources */,
+				D28CA754203DD03000C844A2 /* CAPSPageMenu.m in Sources */,
+				D28CA75B203DD03000C844A2 /* AddDeviceActivityProxy.swift in Sources */,
+				D28CA780203DD03100C844A2 /* UserModel.swift in Sources */,
+				D28CA755203DD03000C844A2 /* FRHyperLabel.m in Sources */,
+				D28CA75E203DD03000C844A2 /* BillingInfo.swift in Sources */,
+				D28CA767203DD03000C844A2 /* GetDashboardDevicesListProxy.swift in Sources */,
+				D28CA77A203DD03100C844A2 /* Validation1.swift in Sources */,
+				D28CA74C203DD03000C844A2 /* CoreDataAccess.swift in Sources */,
+				D28CA757203DD03000C844A2 /* MonthYearPickerView.swift in Sources */,
+				D28CA761203DD03000C844A2 /* DeleteUserLockProxy.swift in Sources */,
+				D28CA769203DD03000C844A2 /* GetDashboardRFIDListProxy.swift in Sources */,
+				D28CA775203DD03100C844A2 /* AFWrapper.swift in Sources */,
+				D28CA777203DD03100C844A2 /* Configuration.swift in Sources */,
+				D28CA75C203DD03000C844A2 /* AddDeviceProxy.swift in Sources */,
+				D28CA762203DD03000C844A2 /* DeviceListProxy.swift in Sources */,
+				D28CA746203DD03000C844A2 /* BLEManager.swift in Sources */,
+				D28CA766203DD03000C844A2 /* GetDashboardDetailProxy.swift in Sources */,
+				D28CA751203DD03000C844A2 /* AbstractProxy.swift in Sources */,
+				D28CA763203DD03000C844A2 /* ForgotPasswordProxy.swift in Sources */,
+				D28CA6E1203DCDF800C844A2 /* ViewController.swift in Sources */,
+				D28CA76B203DD03000C844A2 /* GetHistoryProxy.swift in Sources */,
+				D28CA6DF203DCDF800C844A2 /* AppDelegate.swift in Sources */,
+				D28CA74E203DD03000C844A2 /* DateExtentsion.swift in Sources */,
+				D28CA764203DD03000C844A2 /* GetAccountInfoProxy.swift in Sources */,
+				D28CA76F203DD03100C844A2 /* UpdateAccountInfoProxy.swift in Sources */,
+				D28CA77F203DD03100C844A2 /* InvitedUserModel.swift in Sources */,
+				D28CA77D203DD03100C844A2 /* AlertModel.swift in Sources */,
+				D28CA771203DD03100C844A2 /* UpdateHistoryLogProxy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D28CA6E2203DCDF800C844A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D28CA6E3203DCDF800C844A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D28CA6EA203DCDF800C844A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D28CA6EB203DCDF800C844A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D28CA6EE203DCDF800C844A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D28CA6EF203DCDF800C844A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D28CA6F1203DCDF800C844A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VNX47CC292;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.magneto.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D28CA6F2203DCDF800C844A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VNX47CC292;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.magneto.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D28CA6D6203DCDF800C844A2 /* Build configuration list for PBXProject "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D28CA6EE203DCDF800C844A2 /* Debug */,
+				D28CA6EF203DCDF800C844A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D28CA6F0203DCDF800C844A2 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D28CA6F1203DCDF800C844A2 /* Debug */,
+				D28CA6F2203DCDF800C844A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D28CA6E5203DCDF800C844A2 /* Demo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D28CA6E6203DCDF800C844A2 /* Demo.xcdatamodel */,
+			);
+			currentVersion = D28CA6E6203DCDF800C844A2 /* Demo.xcdatamodel */;
+			path = Demo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D28CA6D3203DCDF800C844A2 /* Project object */;
+}
